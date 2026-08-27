@@ -1,0 +1,65 @@
+{
+  "keyed_on": "detector_density_detperframe",
+  "density_tertiles": {
+    "low_below": 15.43,
+    "high_atabove": 28.72
+  },
+  "bucket_track_thresh": {
+    "high": 0.58,
+    "low": 0.55,
+    "med": 0.57
+  },
+  "selection_metric": "0.5*HOTA + 0.5*IDF1",
+  "grid": [
+    0.4,
+    0.45,
+    0.5,
+    0.55,
+    0.6
+  ],
+  "note": "Fit on MOT17 TRAIN only; density from detector output (no GT). Apply blindly to test by measuring each test sequence density.",
+  "train_best": [
+    {
+      "base": "MOT17-05",
+      "density": 14.1,
+      "bucket": "low",
+      "track_thresh": 0.5
+    },
+    {
+      "base": "MOT17-09",
+      "density": 14.4,
+      "bucket": "low",
+      "track_thresh": 0.6
+    },
+    {
+      "base": "MOT17-11",
+      "density": 15.43,
+      "bucket": "med",
+      "track_thresh": 0.6
+    },
+    {
+      "base": "MOT17-13",
+      "density": 19.78,
+      "bucket": "med",
+      "track_thresh": 0.55
+    },
+    {
+      "base": "MOT17-10",
+      "density": 28.72,
+      "bucket": "high",
+      "track_thresh": 0.55
+    },
+    {
+      "base": "MOT17-02",
+      "density": 46.13,
+      "bucket": "high",
+      "track_thresh": 0.6
+    },
+    {
+      "base": "MOT17-04",
+      "density": 47.33,
+      "bucket": "high",
+      "track_thresh": 0.6
+    }
+  ]
+}
