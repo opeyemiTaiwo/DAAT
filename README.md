@@ -1,6 +1,5 @@
 # DAAT — Density-Adaptive Auditable Tracking
 
-Anonymous code release accompanying a WACV 2027 submission,
 *Density-Adaptive Association with Auditable Identity Tracking for Forensic
 Multi-Object Tracking*.
 
