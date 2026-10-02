@@ -116,6 +116,7 @@ sample_logs/  Complete, unmodified audit logs for MOT17-12-DPM and
               MOT17-14-FRCNN from the official test submission.
 results/      One folder per experiment, each with its
               ALL_SEQUENCES_metrics.csv exactly as produced at run time.
+verify.py     Re-derivation audit over the evidence logs (see below)
 eval/         trackeval_rescore.py — TrackEval rescoring
               flag_calibration.py  — ambiguity-flag calibration vs. GT
 ```
@@ -151,7 +152,38 @@ YOLOX), TrackEval
 (`pip install git+https://github.com/JonathonLuiten/TrackEval.git`).
 Developed and run on Google Colab (single GPU).
 
-## License and anonymity
+## Re-deriving logged decisions
 
-Released for anonymous review. A public repository with authorship and a
-permanent license will replace this on acceptance.
+`verify.py` is the re-derivation tool. It reads an evidence log and, for each
+logged identity decision, checks two things this work keeps distinct:
+
+1. **Decision re-derivation.** Given the inputs the log records, does the
+   recorded outcome follow from the tracker's deterministic rule?
+2. **Input provenance.** Can each logged input value itself be recomputed from
+   the raw detections and embeddings held in this release?
+
+A decision is reported as FULLY re-derived when both hold, and as DECISION-ONLY
+re-derived when the rule reproduces but one input (an appearance term inside a
+fused cost) is not independently recomputable, because per-detection embeddings
+are not serialized.
+
+```
+python verify.py sample_logs/
+```
+
+The log schema is documented in [`docs/AUDIT_LOG_FORMAT.md`](docs/AUDIT_LOG_FORMAT.md).
+
+## Authors
+
+Opeyemi T. Adeniran, Kofi Nyarko, Peter Taiwo, Hashmath Fathima
+
+Center for Equitable Artificial Intelligence and Machine Learning Systems
+(CEAMLS), Morgan State University, Baltimore, MD 21251, USA
+
+Correspondence: opade7@morgan.edu
+
+## License
+
+Code in this repository is released under the MIT License (see `LICENSE`).
+The audit logs, frozen rules, metric records, and documentation are released
+under CC BY 4.0.
