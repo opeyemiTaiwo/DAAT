@@ -1,0 +1,7 @@
+# The audit logs, tracker output and ground truth are EVIDENCE. Git must
+# store them byte-for-byte: the paper's hash chain is computed over these
+# exact bytes, and a line-ending conversion silently invalidates it. "-text"
+# disables all end-of-line translation; "-diff" keeps git from generating
+# diffs for files that are large and line-oriented.
+reproduction/data/** -text -diff
+sample_logs/** -text

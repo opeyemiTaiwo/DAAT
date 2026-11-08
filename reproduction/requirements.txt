@@ -1,0 +1,10 @@
+# Core dependencies. These are the only ones reproduce.py needs.
+numpy>=1.24
+pandas>=2.0
+
+# Needed only for the figure scripts, not for reproduce.py:
+# matplotlib>=3.7
+
+# Needed only for the accuracy comparisons and Figure 2, which this bundle
+# cannot run anyway without MOT17 ground truth:
+# git+https://github.com/JonathonLuiten/TrackEval.git

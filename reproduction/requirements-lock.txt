@@ -1,0 +1,5 @@
+# The exact versions this package was tested against, on Python 3.13.18.
+# Use these if requirements.txt gives you trouble.
+numpy==2.5.3
+pandas==3.0.5
+matplotlib==3.11.2
